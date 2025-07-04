@@ -6,6 +6,7 @@ import OrderStatusChart from './OrderStatusChart';
 import OrderStatisticsChart from './OrderStatisticsChart';
 import { useEffect } from "react";
 import axios from "axios";
+import ConfirmModal from './ConfirmModal';
 
 
 export default function DashboardPage() {
@@ -16,7 +17,8 @@ const [orders, setOrders] = useState([]);
   const [paymentMethodsPeriod, setPaymentMethodsPeriod] = useState("Last 7 days");
   const [newOrdersPeriod, setNewOrdersPeriod] = useState("Today");
   const [inProgressPeriod, setInProgressPeriod] = useState("Today");
-
+  const [selectedOrderId, setSelectedOrderId] = useState(null);
+ const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredOrders, setFilteredOrders] = useState([]);
 const [statusFilter, setStatusFilter] = useState('Status');
@@ -43,7 +45,25 @@ orders.forEach(order => {
 
   const inProgressOrders = orders.filter(order => order.status === "pending");
 
+const handleDeleteClick = (orderId) => {
+  setSelectedOrderId(orderId);
+  setShowDeleteModal(true);
+};
   
+const confirmDelete = async () => {
+  try {
+    await axios.delete(`http://localhost:5000/api/orders/${selectedOrderId}`);
+    setOrders(prev => prev.filter(o => o.orderId !== selectedOrderId));
+    setFilteredOrders(prev => prev.filter(o => o.orderId !== selectedOrderId));
+    toast.success("Order deleted successfully");
+  } catch (err) {
+    console.error("Delete failed:", err);
+    toast.error("Failed to delete order");
+  } finally {
+    setShowDeleteModal(false);
+    setSelectedOrderId(null);
+  }
+};
 const recentTransactions = [...orders]
   .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
   .slice(0, 5);
@@ -449,7 +469,8 @@ useEffect(() => {
               src="/pencil.png"
               className="w-4 h-4 mt-2 cursor-pointer"
             />
-            <img src="/bin.png" className="w-4 h-4 mt-2" />
+            <img src="/bin.png" className="w-4 h-4 mt-2"
+            onClick={() => handleDeleteClick(order.orderId)} />
           </td>
         </tr>
       );
@@ -469,6 +490,11 @@ useEffect(() => {
           </div>
         </div>
       </div>
+       <ConfirmModal
+        isOpen={showDeleteModal}
+        onClose={() => setShowDeleteModal(false)}
+        onConfirm={confirmDelete}
+      />
     </div>
   );
 }

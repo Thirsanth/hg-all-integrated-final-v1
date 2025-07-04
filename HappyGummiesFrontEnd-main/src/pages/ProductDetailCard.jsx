@@ -876,7 +876,7 @@ const EditStockModal = ({ isOpen, onClose, stockData, onUpdate }) => {
   };
   if (!isOpen) return null;
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50">
       <div className="bg-white p-6 rounded-lg shadow-lg text-black">
         <h2 className="text-xl font-bold mb-4">Edit Stock Quantity</h2>
         <label className="block mb-2">
@@ -905,7 +905,7 @@ const EditProductModal = ({ isOpen, onClose, productData, onUpdate }) => {
   };
   if (!isOpen) return null;
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50">
       <div className="bg-white p-6 rounded-lg shadow-lg text-black">
         <h2 className="text-xl font-bold mb-4">Edit Product Details</h2>
         <label className="block mb-2">
@@ -936,7 +936,7 @@ const EditProductModal = ({ isOpen, onClose, productData, onUpdate }) => {
 };
 
 // Placeholder for product image
-const productImage = "https://placehold.co/320x320/E5E7EB/6B7280?text=Product+Image";
+const productImage = "/product_image.png";
 
 export default function ProductDetail() {
   const { id } = useParams(); 
@@ -1124,7 +1124,7 @@ export default function ProductDetail() {
           <div className="w-full bg-white rounded-[16px] shadow-lg p-[24px] flex gap-[24px] items-start">
             <div className="w-[376px] h-[390px] bg-gray-100 rounded-[16px] flex items-center justify-center">
               <img
-                src={productImage}
+                src={product.image||productImage}
                 alt={product.title}
                 className="h-[320px] object-contain"
               />
@@ -1233,7 +1233,7 @@ export default function ProductDetail() {
           )}
 
           {showDeleteConfirm && (
-            <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-50">
+            <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex justify-center items-center z-50">
               <div className="bg-white p-6 rounded-2xl text-center shadow-lg max-w-sm w-full">
                 <div className="flex justify-center mb-4">
                   <div className="bg-red-500 p-3 rounded-full">

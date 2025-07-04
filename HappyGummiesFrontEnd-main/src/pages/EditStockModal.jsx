@@ -8,7 +8,7 @@ export default function EditStockModal({ isOpen, onClose, stockData, onUpdate })
     };
   
     return (
-      <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-50">
+      <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex justify-center items-center z-50">
         <div className="bg-white rounded-2xl shadow-lg p-6 w-full max-w-md">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-lg font-bold">Edit Stock Status</h2>

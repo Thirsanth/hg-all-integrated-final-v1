@@ -4,7 +4,7 @@ export default function ConfirmModal({ isOpen, onClose, onConfirm }) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50">
       <div className="bg-white rounded-lg p-6 shadow-md w-80">
         <h2 className="text-lg font-semibold mb-4 text-gray-800">Confirm Deletion</h2>
         <p className="text-gray-600 mb-6">Are you sure you want to delete this order?</p>

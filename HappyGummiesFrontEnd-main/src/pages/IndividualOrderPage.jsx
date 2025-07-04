@@ -213,15 +213,22 @@ export default function IndividualOrderPage() {
               <div className="space-y-4">
                 <div>
                   <div className="text-gray-500 text-sm mb-1">Name</div>
-                  <div className="font-medium">{order.payer?.name}</div>
+                  <div className="font-medium">{order.address?.contact?.firstName} {order.address?.contact?.lastName}</div>
                 </div>
                 <div>
                   <div className="text-gray-500 text-sm mb-1">Phone number</div>
-                  <div className="font-medium">{order.payer?.phone}</div>
+                  {/* <div className="font-medium">{order.payer?.phone}</div> */}
+                                    <div className="font-medium">{order.address?.contact?.phone}</div>
+
                 </div>
                 <div>
                   <div className="text-gray-500 text-sm mb-1">Delivery Address</div>
-                  <div className="font-medium">{order.payer?.address}</div>
+                  {/* <div className="font-medium">{order.address?.}</div> */}
+                  <div className='font-medium'>
+                    {order.address?.shipping?.house}, {order.address?.shipping?.addressLine},<br />
+    {order.address?.shipping?.landmark}, {order.address?.shipping?.city},<br />
+    {order.address?.shipping?.state} - {order.address?.shipping?.postalCode}
+                  </div>
                 </div>
               </div>
               <div className="space-y-4">

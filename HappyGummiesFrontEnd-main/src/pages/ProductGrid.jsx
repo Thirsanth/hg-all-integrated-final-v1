@@ -218,6 +218,7 @@ import { List } from "lucide-react";
 import { Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
+// import productImage from '../assets/product_image.png';
 
 // --- Mock API Base URL (Replace with your actual backend URL) ---
 const API_BASE_URL = 'http://localhost:5000/api'; // Example backend URL
@@ -265,7 +266,7 @@ const fetchData = async (url, options = {}) => {
 const gridIcon = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='7' height='7' rx='1'%3E%3C/rect%3E%3Crect x='14' y='3' width='7' height='7' rx='1'%3E%3C/rect%3E%3Crect x='3' y='14' width='7' height='7' rx='1'%3E%3C/rect%3E%3Crect x='14' y='14' width='7' height='7' rx='1'%3E%3C/rect%3E%3C/svg%3E";
 
 // Placeholder for product image (assuming it's a local asset, replaced with placeholder service)
-const productImage = "https://placehold.co/320x320/E5E7EB/6B7280?text=Product+Image";
+const productImage = "/product_image.png";
 
 
 export default function ProductGrid() {
@@ -362,8 +363,9 @@ export default function ProductGrid() {
                   >
                     <div className="rounded-xl flex justify-center items-center mb-6 bg-gray-100 p-6 h-[500px]">
                       <img
-                        src={product.image || productImage} // Use product's image if available, else placeholder
-                        alt={product.title}
+                        src= {product.image || productImage}// Use product's image if available, else placeholder
+                        // alt={product.title}
+                        alt="cdjcndcdnc"
                         className="max-h-[400px] max-w-[80%] object-contain rounded-lg"
                       />
                     </div>
