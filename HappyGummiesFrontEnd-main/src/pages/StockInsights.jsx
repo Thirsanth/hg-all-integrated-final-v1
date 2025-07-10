@@ -96,7 +96,7 @@ import {
 } from "recharts";
 
 // --- Mock API Base URL (Replace with your actual backend URL) ---
-const API_BASE_URL = 'http://localhost:5000/api'; // Example backend URL
+const API_BASE_URL = 'https://hg-admin-backend.onrender.com/api'; // Example backend URL
 
 // --- Utility function for API calls ---
 const fetchData = async (url, options = {}) => {
