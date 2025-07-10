@@ -185,7 +185,7 @@ export default function IndividualOrderPage() {
  useEffect(() => {
      const fetchOrders = async () => {
        try {
-         const res = await axios.get(`http://localhost:5000/api/orders/${orderId}`);
+         const res = await axios.get(`https://hg-admin-backend.onrender.com/api/orders/${orderId}`);
          setOrder(res.data);
        } catch (err) {
          console.error("Failed to fetch orders:", err);
