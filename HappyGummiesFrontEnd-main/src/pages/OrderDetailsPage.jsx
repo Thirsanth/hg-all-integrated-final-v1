@@ -50,7 +50,7 @@ const handleDeleteClick = (orderId) => {
 // On confirm delete
 const confirmDelete = async () => {
   try {
-    await axios.delete(`http://localhost:5000/api/orders/${selectedOrderId}`);
+    await axios.delete(`https://hg-admin-backend.onrender.com/api/orders/${selectedOrderId}`);
     setOrders(prev => prev.filter(o => o.orderId !== selectedOrderId));
     setFilteredOrders(prev => prev.filter(o => o.orderId !== selectedOrderId));
     toast.success("Order deleted successfully");
@@ -156,7 +156,7 @@ const MiniChart = ({ data, color }) => (
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/orders");
+        const res = await axios.get("https://hg-admin-backend.onrender.com/api/orders");
         setOrders(res.data);
          setFilteredOrders(res.data);
       } catch (err) {
