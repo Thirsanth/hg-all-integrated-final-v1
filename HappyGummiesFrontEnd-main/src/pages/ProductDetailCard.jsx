@@ -740,7 +740,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 
-const API_BASE_URL = 'http://localhost:5000/api'; 
+const API_BASE_URL = 'https://hg-admin-backend.onrender.com/api'; 
 
 const fetchData = async (url, options = {}) => {
   try {
