@@ -1464,7 +1464,7 @@ import {
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'https://hg-admin-backend.onrender.com/api';
 
 const fetchData = async (url, options = {}) => {
   try {
